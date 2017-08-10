@@ -1,0 +1,24 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Create a bucket in the UK region
+      s3_bucket:
+       aws_access_key: "{{ACCESS_KEY}}"
+       aws_secret_key: "{{SECRET_KEY}}"
+       name: erg-opg-nb-bucket
+       state: present
+       s3_url: https://s3.eu-west-2.amazonaws.com
+      ignore_errors: yes
+
+    - name: Provision ec2 instance
+      ec2:
+         aws_access_key: "{{ACCESS_KEY}}"
+         aws_secret_key: "{{SECRET_KEY}}"
+         instance_type: t2.micro
+         image: "ami-ed100689"
+         wait: true
+         count: 1
+         ec2_url: https://ec2.eu-west-2.amazonaws.com
+      register: ec2

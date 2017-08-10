@@ -1,0 +1,17 @@
+# Pre Interview Technical Questions
+
+Three scenarios - q1, q2, q3
+
+## Getting Started
+
+To run q1. Run the following command - "vagrant up". This will create a Oracle VirtualBox Ubuntu VM and provision it with docker and docker compose and run docker-compose creating the nginx and postgres containers from library images.
+
+To run q2. Again, run "vagrant up" This will also create a Oracle VirtualBox Ubuntu VM but this time provision it with ansible and run the ansible playbook. The ansible playbook creates an S3 instance and an EC2 instance.
+
+To run q3. Simply execute the command "terraform apply". This will create a EC2 instance idempotently and configure the logicl volume /opt. 
+
+### Prerequisites
+
+Vagrant - available from HashiCorp. https://www.vagrantup.com/
+Oracle VirtualBox - available from Oracle.https://www.virtualbox.org/wiki/Downloads
+Terraform - available from HashiCorp. https://www.terraform.io/

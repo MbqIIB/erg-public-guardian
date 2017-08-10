@@ -1,0 +1,12 @@
+version: '2'
+services:
+  web:
+    image: nginx
+    ports:
+     - "8080:80"
+    volumes:
+     - .:/etc/nginx/conf.d/mysite.template
+  database:
+    image: postgres
+    environment:
+        POSTGRES_PASSWORD: example
